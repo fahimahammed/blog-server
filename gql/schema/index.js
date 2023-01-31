@@ -24,6 +24,24 @@ const typeDefs = `#graphql
     body: String
     user: User
   }
+
+  input newPost {
+    userId: Int
+    title: String
+    body: String
+  }
+
+  input updatedPost {
+    _id: ID!
+    title: String
+    body: String
+  }
+
+  type Mutation {
+    addPost(input: newPost): Boolean
+    deletePost(id: ID!): Boolean
+    updatePost(input: updatedPost): Boolean
+  }
 `;
 
 module.exports = typeDefs;
